@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Ramen japonés, sushi y cocina japonesa en la Colonia Americana de Guadalajara. Explora el menú de Ebisumaru Ramen.">
 <title>Ebisumaru Ramen · Guadalajara</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
@@ -133,7 +134,6 @@ body::after{content:"";position:fixed;inset:0;z-index:50;pointer-events:none;opa
 @keyframes stamp{from{opacity:0;transform:scale(2) rotate(-14deg)}to{opacity:1;transform:rotate(-6deg)}}
 .info a{color:var(--red);font-weight:700}
 @media (max-width:780px){.mwrap{width:42%;justify-self:start}.vert{display:none}}
-@media (max-width:600px){.links a:not(.btn){display:none}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01s!important;animation-delay:0s!important;animation-iteration-count:1!important;transition-duration:.01s!important}.js .rv{opacity:1;transform:none}.stamp{opacity:1}}
 footer .wrap{flex-wrap:wrap;justify-content:space-between}
 .copy{display:flex;align-items:center;gap:18px}
@@ -184,15 +184,65 @@ dialog::backdrop{background:#000000a6;-webkit-backdrop-filter:blur(4px);backdrop
 .lc h3{font-size:1.25rem}.lc p{margin:0;color:var(--muted);font-size:.95rem;flex:1}
 .lc .go{font-weight:700;color:var(--red);margin-top:10px;background:linear-gradient(currentColor,currentColor) 0 100%/0 2px no-repeat;transition:background-size .3s;width:max-content;padding-bottom:2px}
 .lc:hover .go{background-size:100% 2px}
+
+/* Menú editorial */
+#menu{position:relative;background:linear-gradient(180deg,#f8f6f1 0%,#f2f2f0 100%);border-top:1px solid #e7e2d8;border-bottom:1px solid #e7e2d8}
+#menu{color:#232825;--ink:#232825;--muted:#5d6560;--card:#fff}
+#menu .wrap{max-width:1240px}
+.menu-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:30px}
+.menu-kicker{margin:0 0 10px;color:#9e3829;font-size:.78rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+#menu h2{font-size:clamp(2.7rem,6vw,4.4rem);letter-spacing:-.045em;margin:0}
+#menu .sub{margin:12px 0 0;max-width:58ch}
+.menu-note{display:flex;align-items:center;gap:10px;padding:10px 14px;border:1px solid #e5ded1;border-radius:12px;background:#ffffff80;color:var(--muted);font-size:.84rem;white-space:nowrap}
+.menu-note::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--red)}
+#menu .bar{position:static;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px;align-items:center;padding:0;margin:0 0 12px;background:transparent}
+#menu .tabs{min-width:0;gap:4px;overflow-x:auto;scrollbar-width:none;border-bottom:1px solid #ded9d0}
+#menu .tabs::-webkit-scrollbar{display:none}
+#menu .tabs button{position:relative;display:flex;align-items:center;gap:8px;min-height:52px;padding:10px 15px;border:0;border-radius:0;background:transparent;color:var(--muted);font-size:.95rem;white-space:nowrap}
+#menu .tabs button::after{content:"";position:absolute;right:14px;bottom:-1px;left:14px;height:3px;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform .2s}
+#menu .tabs button[aria-selected="true"]{background:transparent;color:var(--ink)}
+#menu .tabs button[aria-selected="true"]::after{transform:scaleX(1)}
+.tab-count{color:#93968f;font-size:.74rem;font-weight:500}
+#menu .tools{justify-content:flex-end;flex-wrap:nowrap}
+#menu .seg{border:1px solid #d8d2c8;border-radius:10px;background:#fff;overflow:hidden}
+#menu .seg button{min-height:42px;padding:8px 12px;color:var(--muted);font-size:.82rem}
+#menu .seg button[aria-pressed="true"]{background:var(--char);color:#fff}
+#menu #q{width:220px;min-height:44px;border:1px solid #d8d2c8;border-radius:10px;background:#fff;padding:9px 13px;transition:border-color .2s,box-shadow .2s}
+#menu #q:focus{border-color:var(--red);box-shadow:0 0 0 3px #d4553f20;outline:0}
+.menu-count{min-height:24px;margin:0 0 12px;color:var(--muted);font-size:.82rem}
+#menu .grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+#menu .card{position:relative;min-width:0;padding:0;border:1px solid #e7e2d8;border-radius:18px;background:var(--card);overflow:hidden;box-shadow:0 4px 16px #292e2b08;transition:transform .25s,border-color .25s,box-shadow .25s}
+#menu .card:hover{transform:translateY(-5px);border-color:#d7c9b7;box-shadow:0 18px 34px -20px #292e2b55}
+#menu .card:focus-visible{outline:3px solid var(--red);outline-offset:3px}
+#menu .card .ph{aspect-ratio:1.35;background:radial-gradient(ellipse at 50% 48%,#fff 0%,#f5f1e9 68%,#eee8dc 100%);margin:0;overflow:hidden}
+#menu .card .ph img{width:100%;height:100%;max-height:none;object-fit:contain;padding:12px;transition:transform .45s}
+#menu .card:hover .ph img{transform:scale(1.045)}
+#menu .card .ph::after{right:10px;bottom:10px;border-color:#fff9;background:#292e2bd9;font-size:.58rem;letter-spacing:.1em}
+.card-copy{display:flex;flex:1;flex-direction:column;padding:17px 18px 16px}
+.card-title{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+#menu .card h3{font-size:1.14rem;line-height:1.25}
+#menu .jp{margin:4px 0 9px;font-size:.8rem;letter-spacing:.04em}
+#menu .card p{margin:0 0 16px;font-size:.86rem;line-height:1.5}
+#menu .card .row{margin-top:auto;padding-top:12px;border-top:1px solid #eeeae3}
+#menu .price{font-size:1.25rem;color:var(--ink)}
+#menu .chip{font-size:.69rem;padding:3px 8px}
+#menu .chip.p{background:#a83e2e}
+.menu-empty{grid-column:1/-1;padding:32px;border:1px dashed #d8d2c8;border-radius:16px;background:#fff9;text-align:center}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:900px){#menu .bar{grid-template-columns:1fr}.menu-head{align-items:flex-start}.menu-note{margin-top:12px}#menu .tools{justify-content:space-between}#menu .grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){#menu{padding:52px 0}#menu .wrap{padding:0 18px}.menu-head{display:block;margin-bottom:22px}.menu-note{width:max-content;max-width:100%;white-space:normal;font-size:.78rem}#menu .bar{gap:12px}#menu .tabs{margin:0 -18px;padding:0 18px}#menu .tabs button{min-height:48px;padding:8px 12px;font-size:.86rem}#menu .tools{display:grid;grid-template-columns:1fr;gap:9px}#menu .seg{width:max-content;max-width:100%}#menu .seg button{min-height:40px;padding:7px 13px}#menu #q{width:100%;min-height:46px}#menu .grid{gap:11px}#menu .card{border-radius:14px}#menu .card .ph{aspect-ratio:1.08}#menu .card .ph img{padding:7px}#menu .card-copy{padding:12px 12px 11px}#menu .card h3{font-size:.94rem}#menu .jp{font-size:.72rem;margin:3px 0 7px}#menu .card p{display:-webkit-box;overflow:hidden;-webkit-box-orient:vertical;-webkit-line-clamp:2;margin-bottom:9px;font-size:.75rem;line-height:1.4}#menu .card .row{padding-top:8px}#menu .price{font-size:1.05rem}#menu .chip{font-size:.61rem;padding:2px 6px;margin-left:2px}#menu .card .ph::after{right:6px;bottom:6px;padding:2px 5px;font-size:.5rem}}
+@media(max-width:370px){#menu .grid{grid-template-columns:1fr}#menu .card .ph{aspect-ratio:1.5}#menu .card-copy{padding:15px}#menu .card h3{font-size:1.05rem}}
+@media(max-width:600px){.nav{padding-right:18px;padding-left:18px}.links{gap:12px}.links a:not(.btn){display:block;font-size:.8rem}.brand{gap:7px;font-size:1rem}.brand img{width:28px}}
 </style>
 </head>
 <body>
-<nav class="nav"><a class="brand" href="#"><img src="assets/mascot_red.webp" alt=""><span>Ebisumaru</span></a><div class="links"><a href="#menu">Menú</a><a href="#visita">Visita</a><a class="btn dark" href="https://www.ubereats.com/mx/store/ebisumaru-ramen-americana-guadalajara/vaIoEcQcSdO_mZw8B5ahBg" target="_blank" rel="noopener">Pedir en Uber Eats</a></div></nav>
+<nav class="nav" aria-label="Navegación principal"><a class="brand" href="#inicio"><img src="assets/mascot_red.webp" alt=""><span>Ebisumaru</span></a><div class="links"><a href="#menu">Menú</a><a href="#visita">Visita</a><a class="btn dark" href="https://www.ubereats.com/mx/store/ebisumaru-ramen-americana-guadalajara/vaIoEcQcSdO_mZw8B5ahBg" target="_blank" rel="noopener">Pedir en Uber Eats</a></div></nav>
 
-<header class="hero">
+<header class="hero" id="inicio">
   <div class="noren" aria-hidden="true"><span>ラ</span><span>ー</span><span>メ</span><span>ン</span><span>ラ</span><span>ー</span><span>メ</span><span>ン</span></div>
   <div class="wrap">
     <div>
+      <h1 class="sr-only">Ebisumaru Ramen, ramen japonés en Guadalajara</h1>
       <img class="word" src="assets/wordmark.webp" alt="Ebisumaru Ramen" width="900" height="240" fetchpriority="high">
       <p class="lead">Cocina con la calidad y el espíritu único de Japón, en Guadalajara.</p>
       <div class="open" id="open"><i></i><span></span></div>
@@ -207,8 +257,10 @@ dialog::backdrop{background:#000000a6;-webkit-backdrop-filter:blur(4px);backdrop
 <main>
 <section id="menu">
   <div class="wrap">
-    <h2>El menú</h2>
-    <p class="sub">Ramen, arroz, botanas y postres. Cada tazón lleva caldo largo y guarnición fresca.</p>
+    <div class="menu-head">
+      <div><p class="menu-kicker">Ebisumaru · Guadalajara</p><h2 id="menu-title">El menú</h2><p class="sub">Ramen, arroz, botanas y postres. Cada tazón lleva caldo largo y guarnición fresca.</p></div>
+      <div class="menu-note">Caldo preparado con tiempo, servido al momento</div>
+    </div>
     <div class="bar">
       <div class="tabs" role="tablist" id="tabs" aria-label="Categorías"></div>
       <div class="tools">
@@ -216,8 +268,9 @@ dialog::backdrop{background:#000000a6;-webkit-backdrop-filter:blur(4px);backdrop
         <input id="q" type="search" placeholder="Buscar platillo" aria-label="Buscar platillo" autocomplete="off">
       </div>
     </div>
-    <div class="grid" id="grid" role="tabpanel" aria-live="polite"></div>
-    <p class="empty" id="empty" hidden>No hay platillos con ese filtro. Prueba con otra búsqueda.</p>
+    <p class="menu-count" id="menu-count" aria-live="polite"></p>
+    <div class="grid" id="grid" role="tabpanel" aria-labelledby="menu-title" aria-live="polite"></div>
+    <p class="empty menu-empty" id="empty" hidden>No hay platillos con ese filtro. Prueba con otra búsqueda.</p>
   </div>
 </section>
 
@@ -367,12 +420,15 @@ function render(){
   let L=q?ALL:ALL.filter(r=>r[6]===tab);
   if(flt)L=L.filter(r=>r[5].includes(flt));
   if(q)L=L.filter(r=>norm(r[1]+' '+r[2]).includes(q));
-  [...tabs.children].forEach(b=>b.setAttribute('aria-selected',!q&&b.textContent===tab));
+  [...tabs.children].forEach(b=>b.setAttribute('aria-selected',!q&&b.dataset.category===tab));
+  grid.setAttribute('aria-labelledby',q?'menu-title':tabs.querySelector('[aria-selected="true"]').id);
   emp.hidden=L.length>0;
-  grid.innerHTML=L.map(([i,n,j,p,d,f],x)=>`<article class="card" tabindex="0" role="button" aria-label="${n}, $${p}. Ver detalle" data-i="${i}" style="--i:${x}"><div class="ph"><img src="${IMG[i]}" alt="${n}" width="420" height="340" loading="lazy" decoding="async"></div><h3>${n}</h3><div class="jp">${j}</div><p>${d}</p><div class="row"><span class="price">$${p}</span><span>${chips(f)}</span></div></article>`).join('');
+  document.getElementById('menu-count').textContent=`${L.length} ${L.length===1?'platillo':'platillos'}${q?' encontrados':` en ${tab}`}`;
+  grid.innerHTML=L.map(([i,n,j,p,d,f],x)=>`<article class="card" tabindex="0" role="button" aria-haspopup="dialog" aria-label="${n}, $${p}. Ver detalle" data-i="${i}" style="--i:${x}"><div class="ph"><img src="${IMG[i]}" alt="${n}" width="420" height="340" loading="lazy" decoding="async"></div><div class="card-copy"><div class="card-title"><h3>${n}</h3></div><div class="jp">${j}</div><p>${d}</p><div class="row"><span class="price">$${p}</span><span>${chips(f)}</span></div></div></article>`).join('');
 }
 function show(k){tab=k;qi.value='';render()}
-Object.keys(D).forEach(k=>{const b=document.createElement('button');b.type='button';b.role='tab';b.textContent=k;b.onclick=()=>show(k);tabs.appendChild(b)});
+Object.keys(D).forEach((k,i)=>{const b=document.createElement('button');b.type='button';b.role='tab';b.id=`tab-${i}`;b.dataset.category=k;b.setAttribute('aria-controls','grid');b.setAttribute('aria-label',`${k}, ${D[k].length} platillos`);b.innerHTML=`${k}<span class="tab-count">${D[k].length}</span>`;b.onclick=()=>show(k);tabs.appendChild(b)});
+tabs.onkeydown=e=>{if(!['ArrowRight','ArrowLeft','Home','End'].includes(e.key))return;const list=[...tabs.children],current=list.indexOf(e.target);if(current<0)return;e.preventDefault();const next=e.key==='Home'?0:e.key==='End'?list.length-1:(current+(e.key==='ArrowRight'?1:-1)+list.length)%list.length;list[next].focus();list[next].click()};
 document.getElementById('flt').onclick=e=>{const b=e.target.closest('button');if(!b)return;flt=b.dataset.f;[...e.currentTarget.children].forEach(x=>x.setAttribute('aria-pressed',x===b));render()};
 qi.oninput=render;
 function detail(el){const r=ALL.find(r=>r[0]===el.dataset.i);if(!r)return;const[i,n,j,p,d,f,c]=r;dlg.querySelector('.dc').innerHTML=`<img src="${IMG[i]}" alt="${n}"><div class="dt"><h3>${n}</h3><div class="jp">${j} · ${c}</div><p>${d}</p><div class="row"><span class="price">$${p}</span><span>${chips(f)}</span></div></div>`;dlg.showModal()}
