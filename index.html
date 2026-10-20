@@ -43,6 +43,8 @@ h2{font-size:clamp(2rem,5vw,3.2rem);margin-bottom:12px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;display:flex;flex-direction:column}
 .card .ph{aspect-ratio:1/.82;display:flex;align-items:center;justify-content:center;margin-bottom:12px}
 .card .ph img{max-height:100%;object-fit:contain}
+.card .ph{position:relative}
+.card .ph::after{content:"EBISUMARU · GDL";position:absolute;right:8px;bottom:8px;padding:3px 7px;border:1px solid #ffffff80;border-radius:4px;background:#292e2b99;color:#fff;font:700 .62rem/1.2 "Zen Kaku Gothic New",sans-serif;letter-spacing:.08em;pointer-events:none}
 .card h3{font-size:1.2rem}
 .jp{color:var(--muted);font-size:.9rem;margin:2px 0 6px}
 .card p{margin:0 0 12px;color:var(--muted);font-size:.93rem;flex:1}
@@ -282,13 +284,14 @@ dialog::backdrop{background:#000000a6;-webkit-backdrop-filter:blur(4px);backdrop
   </div>
 </section>
 </main>
-<footer><div class="wrap"><div class="copy"><img src="assets/mascot_red.webp" alt=""><span>© Ebisumaru Ramen · Guadalajara, Jalisco · <a href="https://www.instagram.com/ebisumaru_ramen/" target="_blank" rel="noopener" style="color:inherit">@ebisumaru_ramen</a></span></div><div class="credit"><strong>Diseño UX/UI y desarrollo web premium</strong><span>Animaciones, menú interactivo y optimización móvil</span></div></div></footer>
+<footer><div class="wrap"><div class="copy"><img src="assets/mascot_red.webp" alt=""><span>© Ebisumaru Ramen · Guadalajara, Jalisco · <a href="https://www.instagram.com/ebisumaru_ramen/" target="_blank" rel="noopener" style="color:inherit">@ebisumaru_ramen</a></span></div></div></footer>
 <div class="dock"><a class="btn dark" href="https://www.ubereats.com/mx/store/ebisumaru-ramen-americana-guadalajara/vaIoEcQcSdO_mZw8B5ahBg" target="_blank" rel="noopener">Pedir en Uber Eats</a><a class="btn outline" href="https://maps.app.goo.gl/CVeb2xR4B5CQwnAr8" target="_blank" rel="noopener">Cómo llegar</a></div>
 <dialog id="dlg" aria-label="Detalle del platillo"><form method="dialog"><button class="x" aria-label="Cerrar">×</button></form><div class="dc"></div><div class="dact"><a class="btn dark" href="https://www.ubereats.com/mx/store/ebisumaru-ramen-americana-guadalajara/vaIoEcQcSdO_mZw8B5ahBg" target="_blank" rel="noopener">Pedir en Uber Eats</a></div></dialog>
 
 <script>
 if('scrollRestoration' in history)history.scrollRestoration='manual';
-if(!location.hash)scrollTo({top:0,behavior:'instant'});
+if(location.hash)history.replaceState(null,'',location.pathname+location.search);
+scrollTo({top:0,behavior:'instant'});
 const IMG={
  "f_edamame": "assets/f_edamame.webp",
  "f_gyoza_frita": "assets/f_gyoza_frita.webp",
@@ -363,7 +366,7 @@ function render(){
   const q=norm(qi.value.trim());
   let L=q?ALL:ALL.filter(r=>r[6]===tab);
   if(flt)L=L.filter(r=>r[5].includes(flt));
-  if(q)L=L.filter(r=>norm(r[1]+' '+r[2]+' '+r[4]).includes(q));
+  if(q)L=L.filter(r=>norm(r[1]+' '+r[2]).includes(q));
   [...tabs.children].forEach(b=>b.setAttribute('aria-selected',!q&&b.textContent===tab));
   emp.hidden=L.length>0;
   grid.innerHTML=L.map(([i,n,j,p,d,f],x)=>`<article class="card" tabindex="0" role="button" aria-label="${n}, $${p}. Ver detalle" data-i="${i}" style="--i:${x}"><div class="ph"><img src="${IMG[i]}" alt="${n}" width="420" height="340" loading="lazy" decoding="async"></div><h3>${n}</h3><div class="jp">${j}</div><p>${d}</p><div class="row"><span class="price">$${p}</span><span>${chips(f)}</span></div></article>`).join('');
