@@ -172,6 +172,16 @@ dialog::backdrop{background:#000000a6;-webkit-backdrop-filter:blur(4px);backdrop
   .hero{min-height:auto}.hero .wrap{padding-top:96px;padding-bottom:48px}.lead{font-size:1.15rem}
 }
 @media (max-width:560px){.grid{grid-template-columns:repeat(2,1fr);gap:12px}.card{padding:12px}.card h3{font-size:1.02rem}.card p,.card .jp{display:none}.price{font-size:1.1rem}.wrap{padding:0 18px}}
+
+.feedback{padding-bottom:40px}
+.lcs{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.lc{display:flex;flex-direction:column;gap:6px;padding:26px;border:1px solid var(--line);border-radius:18px;background:var(--card);color:var(--ink);text-decoration:none;transition:transform .3s,box-shadow .3s,border-color .3s}
+.lc:hover{transform:translateY(-4px);border-color:var(--red);box-shadow:0 16px 30px -16px #0005}
+.lc .ic{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:var(--char);color:var(--sun);font:800 1.4rem "Shippori Mincho",serif;margin-bottom:8px;transition:transform .5s}
+.lc:hover .ic{transform:rotate(-12deg) scale(1.08)}
+.lc h3{font-size:1.25rem}.lc p{margin:0;color:var(--muted);font-size:.95rem;flex:1}
+.lc .go{font-weight:700;color:var(--red);margin-top:10px;background:linear-gradient(currentColor,currentColor) 0 100%/0 2px no-repeat;transition:background-size .3s;width:max-content;padding-bottom:2px}
+.lc:hover .go{background-size:100% 2px}
 </style>
 </head>
 <body>
@@ -238,6 +248,18 @@ dialog::backdrop{background:#000000a6;-webkit-backdrop-filter:blur(4px);backdrop
     <div><h3>Cócteles con sake</h3><ul><li><span>Sakelichi</span><span>$109</span></li><li><span>Matchasake</span><span>$109</span></li><li><span>Sakemaracuya</span><span>$109</span></li><li><span>Ichigosake</span><span>$109</span></li><li><span>Sakenick</span><span>$109</span></li><li><span>Jingersake</span><span>$109</span></li><li><span>Calpisake</span><span>$109</span></li></ul></div>
     <div><h3>Cerveza</h3><ul><li><span>Kabuki, Karyu y Okami (355 ml)</span><span>$113</span></li><li><span>Asahi (330 ml)</span><span>$106</span></li><li><span>Sapporo Premium (355 ml)</span><span>$136</span></li></ul></div>
     <div><h3>Refrescos</h3><ul><li><span>Calpis, refresco, té verde</span><span>$44</span></li><li><span>Limonada de piña, fresa o lichi</span><span>$71 / $75</span></li></ul><p class="sub" style="margin:14px 0 0">Selección especial de sake que cambia constantemente. Pregunta por las recomendaciones.</p></div>
+  </div>
+</section>
+
+<section class="feedback" id="opinion">
+  <div class="wrap">
+    <h2>Tu opinión nos importa</h2>
+    <p class="sub">Cuéntanos cómo te fue para seguir mejorando. Si necesitas factura, también puedes pedirla aquí.</p>
+    <div class="lcs">
+      <a class="lc" href="https://tally.so/r/wo7lve" target="_blank" rel="noopener"><span class="ic" aria-hidden="true">声</span><h3>Encuesta de satisfacción</h3><p>Responde unas preguntas rápidas sobre tu visita.</p><span class="go">Responder</span></a>
+      <a class="lc" href="https://search.google.com/local/writereview?placeid=ChIJMZgHNgGvKIQRAnO7xwn1h9I" target="_blank" rel="noopener"><span class="ic" aria-hidden="true">星</span><h3>Reseña en Google</h3><p>Comparte tu experiencia para que más personas nos encuentren.</p><span class="go">Dejar reseña</span></a>
+      <a class="lc" href="https://docs.google.com/forms/d/e/1FAIpQLScZFKSPCCVul1_3yjQpvvgWdMPQqyfGbbRgB6CenYH1Eq8yMQ/viewform" target="_blank" rel="noopener"><span class="ic" aria-hidden="true">票</span><h3>Facturación</h3><p>Llena el formulario con tus datos fiscales.</p><span class="go">Solicitar factura</span></a>
+    </div>
   </div>
 </section>
 
@@ -358,9 +380,9 @@ addEventListener('load',()=>{if(!location.hash)scrollTo({top:0,behavior:'instant
 show('Ramen');
 document.documentElement.classList.add('js');
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
-document.querySelectorAll('h2,.sub,.circles figure,.sushi div,.drinks>div,.info,.stamp,.simple').forEach((el,i)=>{
+document.querySelectorAll('h2,.sub,.circles figure,.sushi div,.drinks>div,.lc,.info,.stamp,.simple').forEach((el,i)=>{
   if(!el.matches('.simple,.stamp'))el.classList.add('rv');
-  if(el.matches('.circles figure,.sushi div,.drinks>div'))el.style.setProperty('--d',(i%4)*.1+'s');
+  if(el.matches('.circles figure,.sushi div,.drinks>div,.lc'))el.style.setProperty('--d',(i%4)*.1+'s');
   io.observe(el)});
 document.querySelectorAll('.circles figure').forEach(f=>f.insertAdjacentHTML('afterbegin','<div class="steam" aria-hidden="true"><i></i><i></i><i></i></div>'));
 const half=['ラーメン','餃子','寿司','日本酒','唐揚げ','丼'].map(x=>`<span>${x}</span><b>・</b>`).join('');
