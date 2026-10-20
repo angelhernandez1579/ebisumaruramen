@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ebisumaru Ramen · Guadalajara</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+<style>
+:root{--char:#292e2b;--red:#d4553f;--sky:#4db4ee;--sun:#f9e77c;--paper:#f2f2f0;--ink:#232825;--muted:#5d6560;--line:#d4d6d2;--card:#fff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#1c201e;--ink:#eef0ee;--muted:#a9b0ab;--line:#363c38;--card:#262b28}}
+:root[data-theme="dark"]{--paper:#1c201e;--ink:#eef0ee;--muted:#a9b0ab;--line:#363c38;--card:#262b28}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.6 "Zen Kaku Gothic New",system-ui,sans-serif}
+h1,h2,h3{font-family:"Shippori Mincho",Georgia,serif;margin:0;line-height:1.1}
+img{max-width:100%;display:block}
+:focus-visible{outline:3px solid var(--sky);outline-offset:3px}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px}
+.demo{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--sun);color:#222;text-align:center;font-size:.85rem;padding:6px 12px}
+.hero{position:relative;background:var(--red);color:var(--char);min-height:90vh;overflow:hidden;display:flex;align-items:center}
+.hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:center;padding-top:150px;padding-bottom:64px;width:100%}
+.hero .word{width:min(620px,100%)}
+.hero .mascot{width:min(340px,70%);justify-self:center}
+.lead{font-size:1.3rem;max-width:30ch;margin:22px 0 28px;font-weight:500}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-block;padding:14px 26px;border-radius:999px;font-weight:700;text-decoration:none;border:2px solid var(--char);transition:transform .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn.dark{background:var(--char);color:#fff}
+.btn.line{color:inherit}
+.noren{position:absolute;inset:0 0 auto 0;height:42%;display:flex;z-index:2;pointer-events:none}
+.noren span{flex:1;background:var(--char);border-right:3px solid var(--red);display:flex;align-items:center;justify-content:center;color:#ffffffd0;font:800 clamp(1.1rem,3vw,2.1rem)/1 "Shippori Mincho",serif;animation:up 1.5s .3s cubic-bezier(.7,0,.2,1) forwards}
+.noren span:nth-child(odd){--s:-4deg}.noren span:nth-child(even){--s:4deg}
+@keyframes up{to{transform:translateY(-105%) skewX(var(--s))}}
+section{padding:80px 0}
+h2{font-size:clamp(2rem,5vw,3.2rem);margin-bottom:12px}
+.sub{color:var(--muted);max-width:54ch;margin:0 0 32px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}
+.tabs button{font:700 1rem "Zen Kaku Gothic New",sans-serif;padding:10px 20px;border-radius:999px;border:2px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--ink);color:var(--paper)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;display:flex;flex-direction:column}
+.card .ph{aspect-ratio:1/.82;display:flex;align-items:center;justify-content:center;margin-bottom:12px}
+.card .ph img{max-height:100%;object-fit:contain}
+.card h3{font-size:1.2rem}
+.jp{color:var(--muted);font-size:.9rem;margin:2px 0 6px}
+.card p{margin:0 0 12px;color:var(--muted);font-size:.93rem;flex:1}
+.row{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.price{font:800 1.3rem "Shippori Mincho",serif}
+.chip{font-size:.78rem;font-weight:700;padding:2px 9px;border-radius:99px;margin-left:4px}
+.chip.p{background:var(--red);color:#fff}.chip.v{background:#3f9a4f;color:#fff}
+.simple{background:var(--char);color:#f2f2f0}
+.simple .sub{color:#c8cec9}
+.circles{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:32px;margin-top:20px}
+.circles figure{margin:0;text-align:center}
+.circles img{width:min(240px,100%);aspect-ratio:1;border-radius:50%;object-fit:cover;margin:0 auto 14px}
+.circles h3{font-size:1.4rem}
+.circles .price{color:var(--sun);font-size:1.6rem}
+.circles p{color:#c8cec9;font-size:.93rem;margin:6px auto 0;max-width:30ch}
+.sushi{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:24px 0}
+.sushi div{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:10px;aspect-ratio:1;display:flex;align-items:center}
+.sushi img{max-height:100%;object-fit:contain;margin:auto}
+.drinks{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:28px}
+.drinks h3{font-size:1.4rem;border-bottom:2px solid var(--ink);padding-bottom:8px;margin-bottom:10px}
+.drinks ul{list-style:none;margin:0;padding:0}
+.drinks li{display:flex;justify-content:space-between;gap:12px;padding:6px 0;border-bottom:1px solid var(--line);font-size:.96rem}
+.band{background:var(--sky);color:#14202a;text-align:center}
+.band h2{font-size:clamp(1.8rem,4.5vw,3rem);max-width:20ch;margin:0 auto 16px}
+.visit .g{display:grid;grid-template-columns:1.1fr .9fr;gap:40px}
+.info{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:28px}
+.info dt{font-weight:700;margin-top:16px}.info dt:first-child{margin-top:0}
+.info dd{margin:2px 0 0;color:var(--muted)}
+.ph2{background:linear-gradient(transparent 60%,#f9e77c99 60%)}
+footer{padding:40px 0 56px;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
+footer .wrap{display:flex;align-items:center;gap:18px}
+footer img{width:64px}
+@media (max-width:780px){.hero .wrap,.visit .g{grid-template-columns:1fr}.hero .mascot{width:42%;justify-self:start}section{padding:60px 0}.noren{height:36%}.hero .wrap{padding-top:120px}}
+@media (prefers-reduced-motion:reduce){.noren span{animation-duration:.01s;animation-delay:0s}.btn{transition:none}}
+</style>
+</head>
+<body>
+<div class="demo">Propuesta de diseño para Ebisumaru Ramen · datos subrayados por confirmar</div>
+
+<header class="hero">
+  <div class="noren" aria-hidden="true"><span>ラ</span><span>ー</span><span>メ</span><span>ン</span><span>ラ</span><span>ー</span><span>メ</span><span>ン</span></div>
+  <div class="wrap">
+    <div>
+      <img class="word" src="assets/wordmark.webp" alt="Ebisumaru Ramen">
+      <p class="lead">Cocina con la calidad y el espíritu único de Japón, en Guadalajara.</p>
+      <div class="btns"><a class="btn dark" href="#visita">Reserva tu mesa</a><a class="btn line" href="#menu">Ver el menú</a></div>
+    </div>
+    <img class="mascot" src="assets/mascot.webp" alt="">
+  </div>
+</header>
+
+<main>
+<section id="menu">
+  <div class="wrap">
+    <h2>El menú</h2>
+    <p class="sub">Ramen, arroz, botanas y postres. Cada tazón lleva caldo largo y guarnición fresca.</p>
+    <div class="tabs" role="tablist" id="tabs"></div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<section class="simple">
+  <div class="wrap">
+    <h2>Simple auténtico ramen</h2>
+    <p class="sub">Creados para quienes vienen seguido: caldo y fideos de la misma calidad, con menos toppings y mejor precio. Ramen auténtico cualquier día de la semana.</p>
+    <div class="circles">
+      <figure><img src="assets/simple_shoyu.webp" alt="Shoyu ramen clásico"><h3>Shoyu clásico</h3><div class="price">$170</div><p>Caldo de soya equilibrado de 360 ml, panceta de cerdo, cebolla y alga nori.</p></figure>
+      <figure><img src="assets/simple_miso.webp" alt="Miso ramen clásico"><h3>Miso clásico</h3><div class="price">$170</div><p>Caldo de miso caliente de 360 ml, panceta, cebollín y germen de soya.</p></figure>
+      <figure><img src="assets/simple_tonkotsu.webp" alt="Tonkotsu ramen"><h3>Tonkotsu</h3><div class="price">$180</div><p>Caldo cremoso y profundo de 360 ml, panceta, hongo y cebollín.</p></figure>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Y también sushi</h2>
+    <p class="sub">Más de 25 rolls de la casa, desde $128 hasta $227.</p>
+    <div class="sushi">
+      <div><img src="assets/sushi1.webp" alt="Roll de sushi"></div><div><img src="assets/sushi2.webp" alt="Roll de sushi"></div><div><img src="assets/sushi3.webp" alt="Roll de sushi"></div>
+      <div><img src="assets/sushi4.webp" alt="Roll de sushi"></div><div><img src="assets/sushi5.webp" alt="Roll de sushi"></div><div><img src="assets/sushi6.webp" alt="Roll de sushi"></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap drinks">
+    <div><h3>Cócteles con sake</h3><ul><li><span>Sakelichi</span><span>$109</span></li><li><span>Matchasake</span><span>$109</span></li><li><span>Sakemaracuya</span><span>$109</span></li><li><span>Ichigosake</span><span>$109</span></li><li><span>Sakenick</span><span>$109</span></li><li><span>Jingersake</span><span>$109</span></li><li><span>Calpisake</span><span>$109</span></li></ul></div>
+    <div><h3>Cerveza</h3><ul><li><span>Kabuki, Karyu y Okami (355 ml)</span><span>$113</span></li><li><span>Asahi (330 ml)</span><span>$106</span></li><li><span>Sapporo Premium (355 ml)</span><span>$136</span></li></ul></div>
+    <div><h3>Refrescos</h3><ul><li><span>Calpis, refresco, té verde</span><span>$44</span></li><li><span>Limonada de piña, fresa o lichi</span><span>$71 / $75</span></li></ul><p class="sub" style="margin:14px 0 0">Selección especial de sake que cambia constantemente. Pregunta por las recomendaciones.</p></div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap"><h2>Un millón de arigatou</h2><p style="margin:0">Gracias por venir.</p></div>
+</section>
+
+<section class="visit" id="visita">
+  <div class="wrap g">
+    <div>
+      <h2>Ven a comer, o pide a casa</h2>
+      <p class="sub">Reserva por WhatsApp o pide por Uber Eats.</p>
+      <div class="btns"><a class="btn dark" href="#visita" style="background:var(--ink);color:var(--paper);border-color:var(--ink)">Reservar por WhatsApp</a><a class="btn line" style="border-color:var(--ink)" href="#visita">Pedir a domicilio</a></div>
+    </div>
+    <div class="info"><dl>
+      <dt>Dirección</dt><dd><span class="ph2">Colonia Americana, Guadalajara (calle y número por confirmar)</span></dd>
+      <dt>Horario</dt><dd><span class="ph2">Por confirmar</span></dd>
+      <dt>Teléfono</dt><dd><span class="ph2">Por confirmar</span></dd>
+      <dt>Instagram</dt><dd><span class="ph2">Por confirmar</span></dd>
+    </dl></div>
+  </div>
+</section>
+</main>
+<footer><div class="wrap"><img src="assets/mascot_red.webp" alt=""><span>© Ebisumaru Ramen · Guadalajara, Jalisco</span></div></footer>
+
+<script>
+const IMG={
+ "f_edamame": "assets/f_edamame.webp",
+ "f_gyoza_frita": "assets/f_gyoza_frita.webp",
+ "f_karague": "assets/f_karague.webp",
+ "f_yaki_veg": "assets/f_yaki_veg.webp",
+ "r_cheese": "assets/r_cheese.webp",
+ "r_tonkotsu": "assets/r_tonkotsu.webp",
+ "r_vegan": "assets/r_vegan.webp",
+ "f_takoyaki": "assets/f_takoyaki.webp",
+ "f_mochi": "assets/f_mochi.webp",
+ "f_yaki_karague": "assets/f_yaki_karague.webp",
+ "f_gyoza_vegana": "assets/f_gyoza_vegana.webp",
+ "f_don_karague": "assets/f_don_karague.webp",
+ "f_bao_veggie": "assets/f_bao_veggie.webp",
+ "r_yuzu": "assets/r_yuzu.webp",
+ "f_bao_karague": "assets/f_bao_karague.webp",
+ "r_spicycheese": "assets/r_spicycheese.webp",
+ "f_edamame_spicy": "assets/f_edamame_spicy.webp",
+ "r_spicytonkotsu": "assets/r_spicytonkotsu.webp",
+ "f_don_teriyaki": "assets/f_don_teriyaki.webp",
+ "r_miso": "assets/r_miso.webp",
+ "f_gyoza_asada": "assets/f_gyoza_asada.webp",
+ "f_yaki_chashu": "assets/f_yaki_chashu.webp",
+ "f_bao_kakuni": "assets/f_bao_kakuni.webp",
+ "f_don_chashu": "assets/f_don_chashu.webp",
+ "r_spicyvegan": "assets/r_spicyvegan.webp",
+ "f_gyoza_cocida": "assets/f_gyoza_cocida.webp",
+ "f_cheesecake": "assets/f_cheesecake.webp",
+ "r_spicymiso": "assets/r_spicymiso.webp",
+ "f_milcrepas": "assets/f_milcrepas.webp"
+};
+const D={
+Ramen:[
+["r_yuzu","Yuzu Shoyu Ramen","醤油ラーメン",252,"Soya con yuzu, caldo de pollo y cerdo, panceta, bambú y nori.",""],
+["r_miso","Miso Ramen","味噌ラーメン",234,"Miso con caldo de pollo y cerdo, verduras, panceta, carne molida y huevo.",""],
+["r_spicymiso","Spicy Miso Ramen","スパイシー味噌ラーメン",252,"El miso con aceite picante y miso picante.","p"],
+["r_tonkotsu","Tonkotsu Ramen","豚骨ラーメン",234,"Caldo de cerdo con salsa especial, panceta, verduras y hongo oreja de ratón.",""],
+["r_spicytonkotsu","Spicy Tonkotsu Ramen","スパイシー豚骨ラーメン",252,"Tonkotsu con huevo, aceite picante y miso picante.","p"],
+["r_cheese","Cheese Tonkotsu Ramen","チーズ豚骨ラーメン",234,"Tonkotsu con queso rayado y cebolla morada.",""],
+["r_spicycheese","Spicy Cheese Tonkotsu","スパイシーチーズ豚骨ラーメン",252,"Tonkotsu con queso, huevo, aceite picante y miso picante.","p"],
+["r_vegan","Ebisumaru Vegan Men","ヴィーガンラーメン",234,"Fideo vegano en caldo de verduras y leche de avena, con hongo seta frita.","v"],
+["r_spicyvegan","Spicy Vegan Ramen","スパイシーヴィーガンラーメン",234,"El vegano con aceite picante y miso picante.","vp"]],
+Arroz:[
+["f_yaki_chashu","Yakimeshi Chashu","チャーシュー焼き飯",115,"Arroz frito estilo japonés con panceta de cerdo marinada (120 g).",""],
+["f_yaki_karague","Yakimeshi Karague","唐揚げ焼き飯",115,"Arroz frito estilo japonés con pollo marinado frito (120 g).",""],
+["f_yaki_veg","Yakimeshi Vegetariano","ベジ焼き飯",115,"Arroz frito estilo japonés con hongo frito.","v"],
+["f_don_chashu","Chashu Don","チャーシュー丼",128,"Arroz con cerdo kakuni suave (120 g), salsa teriyaki y medio huevo.",""],
+["f_don_karague","Karague Don","唐揚げ丼",128,"Arroz con pollo karaage (120 g), salsa especial y medio huevo.",""],
+["f_don_teriyaki","Teriyaki Pollo Don","照り焼き丼",128,"Arroz con pollo teriyaki (150 g), salsa especial y medio huevo.",""]],
+Botanas:[
+["f_bao_karague","Bao de karague","唐揚げバオ",76,"Pan al vapor con pollo frito.",""],
+["f_bao_kakuni","Bao de kakuni","角煮バオ",76,"Pan al vapor con cerdo kakuni.",""],
+["f_bao_veggie","Bao veggie","ベジバオ",76,"Pan al vapor con verduras.","v"],
+["f_gyoza_asada","Gyoza asada","焼き餃子",115,"Dorada por un lado.",""],
+["f_gyoza_frita","Gyoza frita","揚げ餃子",115,"Crujiente.",""],
+["f_gyoza_cocida","Gyoza cocida","茹で餃子",115,"Suave, al vapor.",""],
+["f_gyoza_vegana","Gyoza vegana","ビーガン餃子",115,"Rellena de verduras.","vp"],
+["f_takoyaki","Takoyaki","たこ焼き",128,"Bolitas de pulpo con bonito.",""],
+["f_karague","Karague, pollo frito","唐揚げ",69,"Pollo marinado y frito.",""],
+["f_edamame","Edamame","枝豆",60,"Vainas de soya con sal.","v"],
+["f_edamame_spicy","Edamame spicy","スパイシー枝豆",79,"Con toque picante.","vp"]],
+Postres:[
+["f_cheesecake","Fuwafuwa cheesecake","ふわふわチーズケーキ",102,"Cheesecake esponjoso estilo japonés.",""],
+["f_milcrepas","Milcrepas","ミルクレープ",136,"Capas de crepa con fruta.",""],
+["f_mochi","Mochi ice","もちアイス",115,"Helado envuelto en mochi con fruta.",""]]};
+const tabs=document.getElementById('tabs'),grid=document.getElementById('grid');
+function show(k){
+  [...tabs.children].forEach(b=>b.setAttribute('aria-selected',b.textContent===k));
+  grid.innerHTML=D[k].map(([i,n,j,p,d,f])=>`<article class="card"><div class="ph"><img src="${IMG[i]}" alt="${n}" loading="lazy"></div><h3>${n}</h3><div class="jp">${j}</div><p>${d}</p><div class="row"><span class="price">$${p}</span><span>${f.includes('v')?'<span class="chip v">Vegano</span>':''}${f.includes('p')?'<span class="chip p">Picante</span>':''}</span></div></article>`).join('');
+}
+Object.keys(D).forEach(k=>{const b=document.createElement('button');b.type='button';b.role='tab';b.textContent=k;b.onclick=()=>show(k);tabs.appendChild(b)});
+show('Ramen');
+</script>
+</body>
+</html>
