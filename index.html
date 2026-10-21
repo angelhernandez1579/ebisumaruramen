@@ -4,6 +4,24 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="Ramen japonés, sushi y cocina japonesa en la Colonia Americana de Guadalajara. Explora el menú de Ebisumaru Ramen.">
+<!-- Reemplaza PLACEHOLDER_DOMAIN por el dominio real cuando lo tengas (p. ej. https://ebisumaruramen.com o tu usuario.github.io/repo) -->
+<link rel="canonical" href="PLACEHOLDER_DOMAIN/">
+<meta property="og:type" content="restaurant">
+<meta property="og:site_name" content="Ebisumaru Ramen">
+<meta property="og:title" content="Ebisumaru Ramen · Guadalajara">
+<meta property="og:description" content="Ramen japonés, sushi y cocina japonesa en la Colonia Americana de Guadalajara.">
+<meta property="og:image" content="PLACEHOLDER_DOMAIN/assets/og-card.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="es_MX">
+<meta property="og:url" content="PLACEHOLDER_DOMAIN/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ebisumaru Ramen · Guadalajara">
+<meta name="twitter:description" content="Ramen japonés, sushi y cocina japonesa en la Colonia Americana de Guadalajara.">
+<meta name="twitter:image" content="PLACEHOLDER_DOMAIN/assets/og-card.jpg">
+<meta name="theme-color" content="#d4553f">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8D%9C%3C/text%3E%3C/svg%3E">
+<link rel="preload" as="image" href="assets/wordmark.webp" fetchpriority="high">
 <title>Ebisumaru Ramen · Guadalajara</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
@@ -233,9 +251,39 @@ dialog::backdrop{background:#000000a6;-webkit-backdrop-filter:blur(4px);backdrop
 @media(max-width:600px){#menu{padding:52px 0}#menu .wrap{padding:0 18px}.menu-head{display:block;margin-bottom:22px}.menu-note{width:max-content;max-width:100%;white-space:normal;font-size:.78rem}#menu .bar{gap:12px}#menu .tabs{margin:0 -18px;padding:0 18px}#menu .tabs button{min-height:48px;padding:8px 12px;font-size:.86rem}#menu .tools{display:grid;grid-template-columns:1fr;gap:9px}#menu .seg{width:max-content;max-width:100%}#menu .seg button{min-height:40px;padding:7px 13px}#menu #q{width:100%;min-height:46px}#menu .grid{gap:11px}#menu .card{border-radius:14px}#menu .card .ph{aspect-ratio:1.08}#menu .card .ph img{padding:7px}#menu .card-copy{padding:12px 12px 11px}#menu .card h3{font-size:.94rem}#menu .jp{font-size:.72rem;margin:3px 0 7px}#menu .card p{display:-webkit-box;overflow:hidden;-webkit-box-orient:vertical;-webkit-line-clamp:2;margin-bottom:9px;font-size:.75rem;line-height:1.4}#menu .card .row{padding-top:8px}#menu .price{font-size:1.05rem}#menu .chip{font-size:.61rem;padding:2px 6px;margin-left:2px}#menu .card .ph::after{right:6px;bottom:6px;padding:2px 5px;font-size:.5rem}}
 @media(max-width:370px){#menu .grid{grid-template-columns:1fr}#menu .card .ph{aspect-ratio:1.5}#menu .card-copy{padding:15px}#menu .card h3{font-size:1.05rem}}
 @media(max-width:600px){.nav{padding-right:18px;padding-left:18px}.links{gap:12px}.links a:not(.btn){display:block;font-size:.8rem}.brand{gap:7px;font-size:1rem}.brand img{width:28px}}
+.skip{position:fixed;top:-60px;left:12px;z-index:100;background:var(--ink);color:var(--paper);padding:12px 18px;border-radius:10px;font-weight:700;text-decoration:none;transition:top .2s}
+.skip:focus{top:calc(env(safe-area-inset-top,0px) + 12px)}
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Ebisumaru Ramen",
+  "servesCuisine": ["Japonesa", "Ramen", "Sushi"],
+  "priceRange": "$$",
+  "image": "PLACEHOLDER_DOMAIN/assets/og-card.jpg",
+  "url": "PLACEHOLDER_DOMAIN/",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "C. José María Morelos 1573D, Col. Americana",
+    "addressLocality": "Guadalajara",
+    "addressRegion": "Jalisco",
+    "postalCode": "44160",
+    "addressCountry": "MX"
+  },
+  "openingHoursSpecification": [{
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    "opens": "13:00",
+    "closes": "20:00"
+  }],
+  "sameAs": ["https://www.instagram.com/ebisumaru_ramen/"],
+  "menu": "PLACEHOLDER_DOMAIN/#menu"
+}
+</script>
 </head>
 <body>
+<a class="skip" href="#menu">Saltar al menú</a>
 <nav class="nav" aria-label="Navegación principal"><a class="brand" href="#inicio"><img src="assets/mascot_red.webp" alt=""><span>Ebisumaru</span></a><div class="links"><a href="#menu">Menú</a><a href="#visita">Visita</a><a class="btn dark" href="https://www.ubereats.com/mx/store/ebisumaru-ramen-americana-guadalajara/vaIoEcQcSdO_mZw8B5ahBg" target="_blank" rel="noopener">Pedir en Uber Eats</a></div></nav>
 
 <header class="hero" id="inicio">
@@ -431,10 +479,20 @@ Object.keys(D).forEach((k,i)=>{const b=document.createElement('button');b.type='
 tabs.onkeydown=e=>{if(!['ArrowRight','ArrowLeft','Home','End'].includes(e.key))return;const list=[...tabs.children],current=list.indexOf(e.target);if(current<0)return;e.preventDefault();const next=e.key==='Home'?0:e.key==='End'?list.length-1:(current+(e.key==='ArrowRight'?1:-1)+list.length)%list.length;list[next].focus();list[next].click()};
 document.getElementById('flt').onclick=e=>{const b=e.target.closest('button');if(!b)return;flt=b.dataset.f;[...e.currentTarget.children].forEach(x=>x.setAttribute('aria-pressed',x===b));render()};
 qi.oninput=render;
-function detail(el){const r=ALL.find(r=>r[0]===el.dataset.i);if(!r)return;const[i,n,j,p,d,f,c]=r;dlg.querySelector('.dc').innerHTML=`<img src="${IMG[i]}" alt="${n}"><div class="dt"><h3>${n}</h3><div class="jp">${j} · ${c}</div><p>${d}</p><div class="row"><span class="price">$${p}</span><span>${chips(f)}</span></div></div>`;dlg.showModal()}
-grid.onclick=e=>{const c=e.target.closest('.card');if(c)detail(c)};
-grid.onkeydown=e=>{if((e.key==='Enter'||e.key===' ')&&e.target.matches('.card')){e.preventDefault();detail(e.target)}};
+function detail(el){const r=ALL.find(r=>r[0]===el.dataset.i);if(!r)return;const[i,n,j,p,d,f,c]=r;dlg.querySelector('.dc').innerHTML=`<img src="${IMG[i]}" alt="${n}"><div class="dt"><h3>${n}</h3><div class="jp">${j} · ${c}</div><p>${d}</p><div class="row"><span class="price">$${p}</span><span>${chips(f)}</span></div></div>`;dlg.showModal();dlg.querySelector(".x").focus()}
+let lastCard=null;
+grid.onclick=e=>{const c=e.target.closest('.card');if(c){lastCard=c;detail(c)}};
+grid.onkeydown=e=>{if((e.key==='Enter'||e.key===' ')&&e.target.matches('.card')){e.preventDefault();lastCard=e.target;detail(e.target)}};
 dlg.onclick=e=>{if(e.target===dlg)dlg.close()};
+dlg.addEventListener('close',()=>{lastCard&&lastCard.focus()});
+dlg.addEventListener('keydown',e=>{
+  if(e.key!=='Tab')return;
+  const f=[...dlg.querySelectorAll('button,a[href]')].filter(el=>el.offsetParent);
+  if(!f.length)return;
+  const first=f[0],last=f[f.length-1];
+  if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}
+  else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}
+});
 addEventListener('load',()=>{if(!location.hash)scrollTo({top:0,behavior:'instant'});setTimeout(()=>document.documentElement.style.scrollBehavior='smooth',400)});
 show('Ramen');
 document.documentElement.classList.add('js');
