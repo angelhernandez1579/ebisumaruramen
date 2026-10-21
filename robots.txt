@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: PLACEHOLDER_DOMAIN/sitemap.xml
+Sitemap: https://angelhernandez1579.github.io/ebisumaruramen/sitemap.xml
